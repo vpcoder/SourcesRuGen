@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace SourcesRuGen.TG
 
     public class BotHelper
     {
+        
         private static ITelegramBotClient lastBotLink;
         
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
@@ -40,9 +42,13 @@ namespace SourcesRuGen.TG
             Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(exception));
         }
 
+        
         public void StartBot()
         {
-            var bot = new TelegramBotClient("6872057815:AAH5yzWOKB3oS2x0FmxBCsvYKFEUeQcufc8");
+            chatId = long.Parse(ConfigurationManager.AppSettings["ChatID"]);
+            tittheme = int.Parse(ConfigurationManager.AppSettings["ThreadID"]);
+            
+            var bot = new TelegramBotClient(ConfigurationManager.AppSettings["BotID"]);
             Console.WriteLine("bot started " + bot.GetMeAsync().Result.FirstName);
 
             var cts               = new CancellationTokenSource();
@@ -59,8 +65,8 @@ namespace SourcesRuGen.TG
                               );
         }
         
-        private const long chatId = -1001336847396;
-        private const int tittheme = 333305;
+        private static long chatId;
+        private static int tittheme;
 
         public void Send(ICollection<string> files, string message)
         {

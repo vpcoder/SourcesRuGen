@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using SourcesRuGen.Prompts;
 
 namespace SourcesRuGen.SD
@@ -15,6 +17,12 @@ namespace SourcesRuGen.SD
         private string url = "http://127.0.0.1:7860/sdapi/v1/";
         private string path = @"D:\ai\stable-diffusion-webui\outputs\txt2img-images\";
 
+        public string GetFirstMeta(List<string> files)
+        {
+            var genData = files.FirstOrDefault() + "_gen.txt";
+            return File.ReadAllLines(genData)[2];
+        }
+        
         public List<string> GetFiles(int count)
         {
             var dir = new List<string>(Directory.GetDirectories(path));
@@ -81,7 +89,7 @@ namespace SourcesRuGen.SD
             {
                 try
                 {
-                    response.Wait(12000000, CancellationToken.None); // 20 минут
+                    response.Wait();
                     break;
                 }
                 catch (Exception ex)
@@ -90,8 +98,8 @@ namespace SourcesRuGen.SD
                     Console.WriteLine("wait iteration " + iterationWait);
                     Thread.Sleep(60000);
                 }
-                if(iterationWait > 1000)
-                    Environment.Exit(-1); // Зациклились, слишком долго ждём уже...
+                if(iterationWait > 20)
+                    break; // Зациклились, слишком долго ждём уже...
             }
 
             var text = response.Result.Content.ReadAsStringAsync();
