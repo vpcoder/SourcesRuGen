@@ -22,12 +22,12 @@ namespace SourcesRuGen.TG
             if(update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
             {
                 var message = update.Message;
-                if (message.Text.ToLower() == "/start_tits")
+                if (message.Text?.ToLower() == "/start_tits")
                 {
                     lastBotLink = botClient;
                     //botClient.SendTextMessageAsync(chatId, "Я исправился, теперь прячу фотки под спойлеры...", tittheme);
                 }
-                if (message.Text.ToLower() == "/stop_tits")
+                if (message.Text?.ToLower() == "/stop_tits")
                 {
                     botClient.SendTextMessageAsync(_chatId, "Останавливаюсь...", _tittheme).Wait();
                     Environment.Exit(0);
