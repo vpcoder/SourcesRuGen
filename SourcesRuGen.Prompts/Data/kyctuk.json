@@ -18,7 +18,7 @@
   "Data": [
     {
       "Level": -100,
-      "Tag": "child,boy",
+      "Tag": "child, boy",
       "Chance": 50,
       "Direction": "Negative"
     },
@@ -30,7 +30,7 @@
     },
     {
       "Level": -5,
-      "Tag": "public bathroom|town|forest|flower field",
+      "Tag": "public bathroom|town|forest|flower field|null",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -50,7 +50,7 @@
     
     {
       "Level": 0,
-      "Tag": "(masterpiece, best quality),perfect face|(masterpiece, best quality), realistic lighting, cinematic lighting, hyperrealism|HDR photo of perfect face, perfectly detailed erotic body",
+      "Tag": "(masterpiece, best quality), perfect face|(masterpiece, best quality), realistic lighting, cinematic lighting, hyperrealism|HDR photo of perfect face, perfectly detailed erotic body",
       "Chance": 50,
       "Direction": "Positive"
     },

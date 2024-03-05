@@ -19,6 +19,8 @@ namespace SourcesRuGen.SD
 
         public string GetFirstMeta(List<string> files)
         {
+            if (files.Count == 0)
+                return null;
             var first   = files.FirstOrDefault();
             var genData = first.Substring(0, first.Length - 4) + "_gen.txt";
             return File.ReadAllLines(genData)[2];
@@ -99,13 +101,18 @@ namespace SourcesRuGen.SD
                     Console.WriteLine("wait iteration " + iterationWait);
                     Thread.Sleep(60000);
                 }
-                if(iterationWait > 20)
+                if(iterationWait >= 17)
                     break; // Зациклились, слишком долго ждём уже...
             }
 
-            var text = response.Result.Content.ReadAsStringAsync();
-            text.Wait();
-            Console.WriteLine("\r\n\r\n"+ text.Result+ "\r\n-----------------------------------------------\r\n\r\n");
+            try
+            {
+                response.Result.Content.ReadAsStreamAsync().Wait();
+            }
+            catch (Exception ex)
+            { }
+
+            Console.WriteLine("\r\n\r\ncomplete gen");
         }
         
     }

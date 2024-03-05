@@ -17,11 +17,11 @@ namespace SourcesRuGenApp
             
             Console.ReadLine();
 
-            DoGenIteration(botHelper, false);
+            DoGenIteration(botHelper);
             PeriodicTask.Run(() =>
             {
                 DoGenIteration(botHelper);
-            }, TimeSpan.FromMinutes(60));
+            }, TimeSpan.FromMinutes(40));
             
             Console.ReadLine();
         }
@@ -38,6 +38,8 @@ namespace SourcesRuGenApp
                 sd.Call(model);
             
             var files = sd.GetFiles(model.Meta.BatchCount);
+            if(files.Count == 0)
+                return;
             botHelper.Send(files,  "Смотри что я щас нарисовал!\r\n" + (needGen? model.Positive : sd.GetFirstMeta(files)));
         }
         
