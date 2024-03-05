@@ -30,7 +30,7 @@ namespace SourcesRuGen.TG
                 }
                 if (message.Text.ToLower() == "/stop_tits")
                 {
-                    botClient.SendTextMessageAsync(chatId, "Останавливаюсь...", tittheme).Wait();
+                    botClient.SendTextMessageAsync(_chatId, "Останавливаюсь...", _tittheme).Wait();
                     Environment.Exit(0);
                 }
             }
@@ -43,12 +43,12 @@ namespace SourcesRuGen.TG
         }
 
         
-        public void StartBot()
+        public void StartBot(string botId, long chatId, int threadId)
         {
-            chatId = long.Parse(ConfigurationManager.AppSettings["ChatID"]);
-            tittheme = int.Parse(ConfigurationManager.AppSettings["ThreadID"]);
+            _chatId   = chatId;
+            _tittheme = threadId;
             
-            var bot = new TelegramBotClient(ConfigurationManager.AppSettings["BotID"]);
+            var bot = new TelegramBotClient(botId);
             Console.WriteLine("bot started " + bot.GetMeAsync().Result.FirstName);
 
             var cts               = new CancellationTokenSource();
@@ -65,21 +65,21 @@ namespace SourcesRuGen.TG
                               );
         }
         
-        private static long chatId;
-        private static int tittheme;
+        private static long _chatId;
+        private static int _tittheme;
 
         public void Send(ICollection<string> files, string message)
         {
             if(lastBotLink == null)
                 return;
             
-            lastBotLink.SendTextMessageAsync(chatId, message, tittheme);
+            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme);
 
             foreach (var file in files)
             {
                 using (var stream = new FileStream(file, FileMode.Open))
                 {
-                    lastBotLink.SendPhotoAsync(chatId, InputFile.FromStream(stream, Path.GetFileName(file)), tittheme, hasSpoiler: true);
+                    lastBotLink.SendPhotoAsync(_chatId, InputFile.FromStream(stream, Path.GetFileName(file)), _tittheme, hasSpoiler: true).Wait();
                 }
             }
         }

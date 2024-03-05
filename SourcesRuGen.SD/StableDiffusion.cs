@@ -19,7 +19,8 @@ namespace SourcesRuGen.SD
 
         public string GetFirstMeta(List<string> files)
         {
-            var genData = files.FirstOrDefault() + "_gen.txt";
+            var first   = files.FirstOrDefault();
+            var genData = first.Substring(0, first.Length - 4) + "_gen.txt";
             return File.ReadAllLines(genData)[2];
         }
         

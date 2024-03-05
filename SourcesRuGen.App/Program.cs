@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using SourcesRuGen.Prompts;
 using SourcesRuGen.SD;
 using SourcesRuGen.TG;
@@ -12,11 +13,11 @@ namespace SourcesRuGenApp
         public static void Main(string[] args)
         {
             BotHelper botHelper = new BotHelper();
-            botHelper.StartBot();
+            botHelper.StartBot(ConfigurationManager.AppSettings["BotID"], long.Parse(ConfigurationManager.AppSettings["ChatID"]), int.Parse(ConfigurationManager.AppSettings["ThreadID"]));
             
             Console.ReadLine();
 
-            DoGenIteration(botHelper);
+            DoGenIteration(botHelper, false);
             PeriodicTask.Run(() =>
             {
                 DoGenIteration(botHelper);
