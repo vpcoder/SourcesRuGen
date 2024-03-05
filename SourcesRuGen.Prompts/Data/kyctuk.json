@@ -13,7 +13,7 @@
     "BatchCount": 10,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "Real\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\leosamsHelloworldXL_helloworldXL50GPT4V|Real\\urpmOrangehard_v20|Real\\wildcardxXLLIGHTNING_wildcardxXL|Real\\zavychromaxl_v50"
+    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
   },
   "Data": [
     {

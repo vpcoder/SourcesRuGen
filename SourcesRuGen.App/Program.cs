@@ -12,7 +12,7 @@ namespace SourcesRuGenApp
         
         public static void Main(string[] args)
         {
-            var botHelper = new BotHelper();
+            var botHelper = new BotHelper(); 
             botHelper.StartBot(ConfigurationManager.AppSettings["BotID"], long.Parse(ConfigurationManager.AppSettings["ChatID"]), int.Parse(ConfigurationManager.AppSettings["ThreadID"]));
             var stableDiffusion = new StableDiffusion(ConfigurationManager.AppSettings["SDHost"], ConfigurationManager.AppSettings["SDOutput"], ConfigurationManager.AppSettings["TmpPath"], long.Parse(ConfigurationManager.AppSettings["MaxWait"]));
             
