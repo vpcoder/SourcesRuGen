@@ -31,9 +31,8 @@ namespace SourcesRuGenApp
         private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper, bool needGen = true)
         {
             var reader = new TagReader();
-            var data   = reader.Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
+            var data = reader.Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
             var model  = new PromptGenerator().Generate(data);
-
             
             if (needGen)
                 sd.Call(model);
