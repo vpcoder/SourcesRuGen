@@ -74,28 +74,28 @@ namespace SourcesRuGen.TG
             if(lastBotLink == null)
                 return;
             
-            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme);
+            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme).Wait();
 
-            List<FileStream>   streamData = new List<FileStream>();
-            IAlbumInputMedia[] album      = new IAlbumInputMedia[files.Count];
-            int                i          = 0;
+            Thread.Sleep(1500);
+            
+            List<FileStream>       streamData = new List<FileStream>();
+            List<IAlbumInputMedia> album      = new List<IAlbumInputMedia>(files.Count);
+            int                    i          = 0;
             foreach (var file in files)
             {
                 var stream = new FileStream(file, FileMode.Open);
                 streamData.Add(stream);
-                album[i] = new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file)));
+                album.Add(new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file))));
                 ((InputMediaPhoto)album[i]).HasSpoiler = true;
                 i++;
             }
             lastBotLink.SendMediaGroupAsync(_chatId, album, _tittheme).Wait();
-            Thread.Sleep(500);
 
             foreach (var stream in streamData)
                 stream.Close();
             
             streamData.Clear();
-            streamData = null;
-            album      = null;
+            album.Clear();
         }
     }
 }
