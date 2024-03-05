@@ -37,7 +37,7 @@ namespace SourcesRuGenApp
                 sd.Call(model);
             
             var files = sd.GetFiles(model.Meta.BatchCount);
-            botHelper.Send(files, "Скопилась пачка с предыдущей операции генерации");
+            botHelper.Send(files, needGen? "Смотри что я щас нарисовал!\r\n" + model.Positive : "Скопилась пачка с предыдущей операции генерации");
         }
         
     }
