@@ -67,7 +67,7 @@ namespace SourcesRuGen.TG
             if(lastBotLink == null)
                 return;
             
-            lastBotLink.SendTextMessageAsync(chatId, "Смотри что я нарисовал!\r\n" + message, tittheme);
+            lastBotLink.SendTextMessageAsync(chatId, message, tittheme);
 
             foreach (var file in files)
             {
