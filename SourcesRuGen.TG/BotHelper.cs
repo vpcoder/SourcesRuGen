@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Telegram.Bot;
@@ -74,10 +72,6 @@ namespace SourcesRuGen.TG
             if(lastBotLink == null)
                 return;
             
-            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme).Wait();
-
-            Thread.Sleep(1500);
-            
             List<FileStream>       streamData = new List<FileStream>();
             List<IAlbumInputMedia> album      = new List<IAlbumInputMedia>(files.Count);
             int                    i          = 0;
@@ -85,11 +79,15 @@ namespace SourcesRuGen.TG
             {
                 var stream = new FileStream(file, FileMode.Open);
                 streamData.Add(stream);
-                album.Add(new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file))));
-                ((InputMediaPhoto)album[i]).HasSpoiler = true;
+                InputMediaPhoto photoElement = new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file)));
+                photoElement.HasSpoiler = true;
+                photoElement.Caption    = Path.GetFileName(file);
+                album.Add(photoElement);
                 i++;
             }
             lastBotLink.SendMediaGroupAsync(_chatId, album, _tittheme).Wait();
+            Thread.Sleep(1500);
+            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme).Wait();
 
             foreach (var stream in streamData)
                 stream.Close();

@@ -12,27 +12,28 @@ namespace SourcesRuGenApp
         
         public static void Main(string[] args)
         {
-            BotHelper botHelper = new BotHelper();
+            var botHelper = new BotHelper();
             botHelper.StartBot(ConfigurationManager.AppSettings["BotID"], long.Parse(ConfigurationManager.AppSettings["ChatID"]), int.Parse(ConfigurationManager.AppSettings["ThreadID"]));
+            var stableDiffusion = new StableDiffusion(ConfigurationManager.AppSettings["SDHost"], ConfigurationManager.AppSettings["SDOutput"], ConfigurationManager.AppSettings["TmpPath"], long.Parse(ConfigurationManager.AppSettings["MaxWait"]));
             
             Console.ReadLine();
 
-            DoGenIteration(botHelper);
+            DoGenIteration(stableDiffusion, botHelper);
             PeriodicTask.Run(() =>
             {
-                DoGenIteration(botHelper);
+                DoGenIteration(stableDiffusion, botHelper);
             }, TimeSpan.FromMinutes(40));
+            
             
             Console.ReadLine();
         }
 
-        private static void DoGenIteration(BotHelper botHelper, bool needGen = true)
+        private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper, bool needGen = true)
         {
             var reader = new TagReader();
             var data   = reader.Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
             var model  = new PromptGenerator().Generate(data);
 
-            var sd = new StableDiffusion();
             
             if (needGen)
                 sd.Call(model);
@@ -40,7 +41,8 @@ namespace SourcesRuGenApp
             var files = sd.GetFiles(model.Meta.BatchCount);
             if(files.Count == 0)
                 return;
-            botHelper.Send(files,  "Смотри что я щас нарисовал!\r\n" + (needGen? model.Positive : sd.GetFirstMeta(files)));
+            botHelper.Send(files,  "Смотри что я щас нарисовал!\r\n" + sd.GetFirstMeta(files));
+            sd.MoveToTmp(files);
         }
         
     }

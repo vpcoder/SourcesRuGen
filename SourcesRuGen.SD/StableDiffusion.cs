@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using SourcesRuGen.Prompts;
 
 namespace SourcesRuGen.SD
@@ -14,16 +13,40 @@ namespace SourcesRuGen.SD
     public class StableDiffusion
     {
 
-        private string url = "http://127.0.0.1:7860/sdapi/v1/";
-        private string path = @"D:\ai\stable-diffusion-webui\outputs\txt2img-images\";
+        private string url;
+        private string path;
+        private string pathTmp;
+        private long   maxWait;
 
+        public StableDiffusion(string url, string path, string pathTmp, long maxWait)
+        {
+            this.url     = url;
+            this.path    = path;
+            this.pathTmp = pathTmp;
+            this.maxWait = maxWait;
+        }
+        
         public string GetFirstMeta(List<string> files)
         {
             if (files.Count == 0)
                 return null;
-            var first   = files.FirstOrDefault();
-            var genData = first.Substring(0, first.Length - 4) + "_gen.txt";
-            return File.ReadAllLines(genData)[2];
+            var genData = GetGenTextName(files.FirstOrDefault());
+            return File.ReadAllLines(genData)[14] + "\r\nprompt: " + File.ReadAllLines(genData)[2];
+        }
+
+        public void MoveToTmp(List<string> files)
+        {
+            foreach (var file in files)
+            {
+                File.Move(file, pathTmp + Path.GetFileName(file));
+                var genName = GetGenTextName(file);
+                File.Move(genName, pathTmp + Path.GetFileName(genName));
+            }
+        }
+
+        private string GetGenTextName(string file)
+        {
+            return file.Substring(0, file.Length - 4) + "_gen.txt";
         }
         
         public List<string> GetFiles(int count)
@@ -101,7 +124,8 @@ namespace SourcesRuGen.SD
                     Console.WriteLine("wait iteration " + iterationWait);
                     Thread.Sleep(60000);
                 }
-                if(iterationWait >= 17)
+                
+                if(GetFiles(1).Count != 0 || iterationWait >= maxWait)
                     break; // Зациклились, слишком долго ждём уже...
             }
 
