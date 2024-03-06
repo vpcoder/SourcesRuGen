@@ -93,14 +93,14 @@
     
     {
       "Level": 6,
-      "Tag": "pale skin|very beautiful|(dark skin, dark-skinned female:1.2)|beautiful|slim body|oiled skin|tan skin|big hips|small body",
+      "Tag": "pale skin|very beautiful|beautiful|slim body|oiled skin|big hips|small body",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 7,
-      "Tag": "full nude|skirt|panties|pantyhose|high briefs|bikinis|virgin destroyer sweater, <lora:virgin_destroyer_sweater:[0.6->1]>",
+      "Tag": "full nude|skirt|panties|pantyhose|high briefs|bikinis",
       "Chance": 50,
       "Direction": "Positive"
     },
