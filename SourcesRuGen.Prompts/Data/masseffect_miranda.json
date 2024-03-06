@@ -41,14 +41,14 @@
 
     {
       "Level": 4,
-      "Tag": "{(cute, petite:1.2)}?, <lora:miranda_lawson:[0.7->1]>",
+      "Tag": "{(cute, petite:1.2)}?, realistic, mirlaw, [bikini|latex|pants|bra|outfit|null] <lora:miranda_lawson:[0.7->1]>|miranda, {[gloves|fingerless gloves]}?, {boots}?, [bodysuit|choker|belt], <lora:Miranda:[0.7->1]>",
       "Chance": 50,
       "Direction": "Positive"
     },
 
-    {
+   {
       "Level": 5,
-      "Tag": "Miranda Lawson from Mass Effect, {[young girl|woman|makeup|18yo girl]}?",
+      "Tag": "black hair, long hair, blue eyes",
       "Chance": 50,
       "Direction": "Positive"
     },
