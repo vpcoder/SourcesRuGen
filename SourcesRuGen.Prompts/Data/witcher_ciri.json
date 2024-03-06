@@ -11,10 +11,10 @@
     "UpscaleBy":  1.667,
     "HiresSteps": 120,
     "DenoisingStrength":  0.56,
-    "BatchCount": 10,
+    "BatchCount": 5,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
+    "CheckPoint": "Real\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\RedBlueFantasy_v20.safetensors [7f4e68104a]|Real\\picxReal_10.safetensors [07919b495d]"
   },
   "Data": [
 
@@ -41,21 +41,21 @@
 
     {
       "Level": 4,
-      "Tag": "ciriW3_soul3142, <lora:ciriW3-08b:[0.6->0.9]>|<lora:W3Ciri:[0.8->1]>, W3Ciri white hair|<lora:ciri:[0.8->1]>",
+      "Tag": "[white shirt|leather gloves], ciriW3_soul3142, <lora:ciriW3-08b:[0.6->0.9]>|w3ciri, {gloves}?, {pants}?, {shirt}?, {sword}?, {jewelry}? <lora:W3Ciri:[0.8->1]>",
       "Chance": 50,
       "Direction": "Positive"
     },
 
     {
       "Level": 5,
-      "Tag": "Ciri, makeup, [young girl|18yo girl]",
+      "Tag": "Ciri, white hair, makeup",
       "Chance": 50,
       "Direction": "Positive"
     },
 
     {
       "Level": 6,
-      "Tag": "very beautiful|beautiful|slim body|oiled skin|big hips|small body",
+      "Tag": "very beautiful|beautiful|slim body|oiled skin, <lora:ShinyOiledSkin_v20-LyCORIS:[0.8->1]>|big hips|small body",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -63,13 +63,6 @@
     {
       "Level": 7,
       "Tag": "full nude, naked body|null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-
-    {
-      "Level": 8,
-      "Tag": "[long|short|ponytail|ginger] hair, [red|blond|brunette|green|gray|white|blue] hair",
       "Chance": 50,
       "Direction": "Positive"
     },

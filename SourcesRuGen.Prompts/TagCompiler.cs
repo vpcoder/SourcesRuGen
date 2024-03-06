@@ -59,9 +59,19 @@ namespace SourcesRuGen.Prompts
             var rangeTokens = variable.IndexOf("->", StringComparison.Ordinal);
             if (rangeTokens > 0) // Диапазон, например: [0->1]
             {
-                var v1 = variable.Substring(0, rangeTokens).Replace(".", ",");
-                var v2 = variable.Substring(rangeTokens + 2, variable.Length - rangeTokens - 2).Replace(".", ",");
-                return GetRandomValue(double.Parse(v1), double.Parse(v2));
+                var v1     = variable.Substring(0,               rangeTokens).Replace(".", ",");
+                var v2     = variable.Substring(rangeTokens + 2, variable.Length - rangeTokens - 2).Replace(".", ",");
+                try
+                {
+                    var value1 = double.Parse(v1);
+                    var value2 = double.Parse(v2);
+                    return GetRandomValue(value1, value2);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine($"exception! v1: {v1}, v2: {v2}");
+                    throw;
+                }
             }
 
             // Набор значений на выбор, например: [0|1|2|null]

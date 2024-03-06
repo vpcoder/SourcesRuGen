@@ -64,7 +64,18 @@ namespace SourcesRuGen.Prompts
                     continue;
                 list.Add(text);
             }
-            return string.Join(", ", list);
+            var result = string.Join(", ", list);
+            
+            while(result.Contains(",,"))
+                result = result.Replace(",,", ",");
+            while(result.Contains(", ,"))
+                result = result.Replace(", ,", ",");
+            while(result.Contains(",,"))
+                result = result.Replace(",,", ",");
+            while(result.Contains(", ,"))
+                result = result.Replace(", ,", ",");
+            
+            return result;
         }
 
     }
