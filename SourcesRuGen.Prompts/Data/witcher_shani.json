@@ -11,7 +11,7 @@
     "UpscaleBy":  1.667,
     "HiresSteps": 120,
     "DenoisingStrength":  0.56,
-    "BatchCount": 5,
+    "BatchCount": 10,
     "CfgScale":  7,
     "UseADetailer": true,
     "CheckPoint": "Real\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\RedBlueFantasy_v20.safetensors [7f4e68104a]|Real\\picxReal_10.safetensors [07919b495d]"
