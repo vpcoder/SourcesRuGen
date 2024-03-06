@@ -2,8 +2,8 @@
   "Meta": {
     "author": "kyctuk",
     "version": "1.0.0",
-    "Name": "kyctuk_base",
-    "date": "2024-03-04",
+    "date": "2024-03-05",
+    "Name": "witcher-yennefer",
     "Width":  768,
     "Height": 512,
     "Sampling":  70,
@@ -29,29 +29,17 @@
       "Chance": 50,
       "Direction": "Positive"
     },
-    {
-      "Level": -5,
-      "Tag": "public bathroom|town|forest|flower field|null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    {
-      "Level": -5,
-      "Tag": "null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
     
     {
       "Level": -1,
-      "Tag": "cinematic photo|(official art, beautiful and aesthetic:1)",
+      "Tag": "cinematic photo|null|(official art, beautiful and aesthetic:1)|null",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 0,
-      "Tag": "(masterpiece, best quality), perfect face|(masterpiece, best quality), realistic lighting, cinematic lighting, hyperrealism|HDR photo of perfect face, perfectly detailed erotic body",
+      "Tag": "(masterpiece, best quality), realistic face|perfect face|(masterpiece, best quality), realistic lighting, cinematic lighting, hyperrealism|HDR photo of perfect face, perfectly detailed erotic body",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -91,21 +79,15 @@
     
     {
       "Level": 4,
-      "Tag": "stonepunk, sci-fi|steampunk, victorian|sci-fi|cyberpunk",
+      "Tag": "(cute, petite:1.2)|null",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 5,
-      "Tag": "(cute, petite:1.2),girl,[young girl|woman|makeup|18yo girl|monster girl]",
+      "Tag": "Yennefer from Witcher 3, [young girl|woman|makeup|18yo girl]",
       "Chance": 50,
-      "Direction": "Positive"
-    },
-    {
-      "Level": 5,
-      "Tag": "cosplay,[nier automata|lara croft|cyberpunk 2077|metal gear solid Quiet|hl2 alyx vance|Ada Wong|Triss Merigold|Yennefer|Miranda Lawson|baldurs gate Karlach]",
-      "Chance": 30,
       "Direction": "Positive"
     },
     
@@ -118,39 +100,20 @@
     
     {
       "Level": 7,
-      "Tag": "[long|short] skirt, [red|black|white|blue|green] skirt",
+      "Tag": "full nude|skirt|panties|pantyhose|high briefs|bikinis|virgin destroyer sweater, <lora:virgin_destroyer_sweater:[0.6->1]>",
       "Chance": 50,
       "Direction": "Positive"
     },
     {
       "Level": 7,
-      "Tag": "[panties|high briefs|bikinis|tights]",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    {
-      "Level": 7,
-      "Tag": "panties under pantyhose, pantyhose, [red|black|white|blue|green|gray] pants",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    {
-      "Level": 7,
-      "Tag": "full nude|virgin destroyer sweater, <lora:virgin_destroyer_sweater:[0.6->1]>",
+      "Tag": "null",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 8,
-      "Tag": "[long|short|ponytail|ginger] hair",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
-    {
-      "Level": 9,
-      "Tag": "[red|blond|brunette|green|gray|white|blue] hair",
+      "Tag": "long hair, black hair",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -164,7 +127,7 @@
     
     {
       "Level": 11,
-      "Tag": "wearing tits|nude tits|naked",
+      "Tag": "nude tits|naked|full-body",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -178,14 +141,7 @@
     
     {
       "Level": 13,
-      "Tag": "naked [pussy|ass|anus|hips],[smooth|plump|steaming] pussy,[pussy juice|creampie|wet dripping pussy|none],perfect pussy|wearing pussy,see-through panties",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
-    {
-      "Level": 14,
-      "Tag": "(female pubic hair)|shaved pussy|camel foot|null",
+      "Tag": "naked [pussy|ass|anus|hips],[smooth|plump|steaming] pussy,[pussy juice|creampie|wet dripping pussy|none],perfect pussy",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -198,15 +154,8 @@
     },
     
     {
-      "Level": 16,
-      "Tag": "null|null|freckles|null",
-      "Chance": 10,
-      "Direction": "Positive"
-    },
-    
-    {
       "Level": 17,
-      "Tag": "sexy pose|(dynamic poses)|solo pose|suggestive poses|Lying on her stomach|back view|standing",
+      "Tag": "sexy pose|(dynamic poses)|solo pose|suggestive poses|Lying on her stomach|standing",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -221,6 +170,12 @@
     {
       "Level": 19,
       "Tag": "legs together|legs crossed|legs spread|posing, dynamic pose|null",
+      "Chance": 50,
+      "Direction": "Positive"
+    },
+    {
+      "Level": 19,
+      "Tag": "null",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -240,7 +195,7 @@
     
     {
       "Level": 101,
-      "Tag": "<lora:add_detail:[0.5->1.5]>|null",
+      "Tag": "<lora:add_detail:[0.8->1.5]>|null",
       "Chance": 50,
       "Direction": "Positive"
     }
