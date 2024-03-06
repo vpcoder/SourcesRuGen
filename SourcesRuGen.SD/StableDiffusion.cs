@@ -136,7 +136,8 @@ namespace SourcesRuGen.SD
             catch (Exception ex)
             { }
 
-            Console.WriteLine("\r\n\r\ncomplete gen");
+            Console.WriteLine("\r\n\r\ncomplete gen, waiting write to disk...");
+            Thread.Sleep(20000);
         }
         
     }

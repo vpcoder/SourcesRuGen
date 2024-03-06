@@ -28,19 +28,20 @@ namespace SourcesRuGenApp
             Console.ReadLine();
         }
 
-        private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper, bool needGen = true)
+        private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper)
         {
             var reader = new TagReader();
             var data = reader.Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
             var model  = new PromptGenerator().Generate(data);
             
-            if (needGen)
-                sd.Call(model);
-            
             var files = sd.GetFiles(model.Meta.BatchCount);
             if(files.Count == 0)
+                sd.Call(model);
+            
+            files = sd.GetFiles(model.Meta.BatchCount);
+            if(files.Count == 0)
                 return;
-            botHelper.Send(files,  "Смотри что я щас нарисовал!\r\n" + sd.GetFirstMeta(files));
+            botHelper.Send(files,  "Смотри что я щас нарисовал!\r\njson: " + model.Meta.Name + "\r\n" + sd.GetFirstMeta(files));
             sd.MoveToTmp(files);
         }
         
