@@ -14,7 +14,7 @@
     "BatchCount": 10,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
+    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
   },
   "Data": [
     {
@@ -178,7 +178,7 @@
     
     {
       "Level": 13,
-      "Tag": "naked [pussy|ass|anus|hips],[smooth|plump|steaming] pussy,[pussy juice|creampie|wet dripping pussy|none],perfect pussy|wearing pussy,see-through panties",
+      "Tag": "naked [pussy|ass|anus|hips],[smooth|plump|steaming] pussy,[pussy juice|creampie|wet dripping pussy|null],perfect pussy|wearing pussy,see-through panties",
       "Chance": 50,
       "Direction": "Positive"
     },

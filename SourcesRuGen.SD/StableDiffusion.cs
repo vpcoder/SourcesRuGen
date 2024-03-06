@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
+using SourcesRuGen.Config;
 using SourcesRuGen.Prompts;
 
 namespace SourcesRuGen.SD
@@ -18,20 +18,18 @@ namespace SourcesRuGen.SD
         private string pathTmp;
         private long   maxWait;
 
-        public StableDiffusion(string url, string path, string pathTmp, long maxWait)
+        public StableDiffusion()
         {
-            this.url     = url;
-            this.path    = path;
-            this.pathTmp = pathTmp;
-            this.maxWait = maxWait;
+            var config = Configuration.Instance;
+            this.url     = config.SDHost;
+            this.path    = config.SHOutput;
+            this.pathTmp = config.TmpPath;
+            this.maxWait = config.MaxWait;
         }
         
-        public string GetFirstMeta(List<string> files)
+        public string GetMetaMessage()
         {
-            if (files.Count == 0)
-                return null;
-            var genData = GetGenTextName(files.FirstOrDefault());
-            return File.ReadAllLines(genData)[14] + "\r\nprompt: " + File.ReadAllLines(genData)[2];
+            return File.ReadAllText(GetMetaPath());
         }
 
         public void MoveToTmp(List<string> files)
@@ -42,6 +40,11 @@ namespace SourcesRuGen.SD
                 var genName = GetGenTextName(file);
                 File.Move(genName, pathTmp + Path.GetFileName(genName));
             }
+
+            try
+            {
+                File.Delete(GetMetaPath());
+            } catch (Exception ignore) { }
         }
 
         private string GetGenTextName(string file)
@@ -51,11 +54,7 @@ namespace SourcesRuGen.SD
         
         public List<string> GetFiles(int count)
         {
-            var dir = new List<string>(Directory.GetDirectories(path));
-            dir.Sort();
-
-            var last = dir[dir.Count - 1];
-
+            var last = GetLastDir();
             var files = new List<string>(Directory.GetFiles(last, "*.png"));
             files.Sort();
 
@@ -65,6 +64,13 @@ namespace SourcesRuGen.SD
                 result.Add(files[i]);
             }
             return result;
+        }
+
+        private string GetLastDir()
+        {
+            var dir = new List<string>(Directory.GetDirectories(path));
+            dir.Sort();
+            return dir[dir.Count - 1];
         }
         
         public void Call(PromptModel promptModel)
@@ -89,7 +95,14 @@ namespace SourcesRuGen.SD
   ""save_images"": true
 }";
             
+            File.WriteAllText(GetMetaPath(), "json: " + promptModel.Meta.Name + "\r\nsd model: " + promptModel.Meta.CheckPoint + "\r\nprompt: " + promptModel.Positive);
             Post("txt2img", json);
+        }
+        
+        private string GetMetaPath()
+        {
+            var lastPath = GetLastDir();
+            return lastPath + "\\meta.txt";
         }
 
         private string GetStr(float value)

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace SourcesRuGen.Prompts
 {
@@ -39,17 +38,18 @@ namespace SourcesRuGen.Prompts
                 Negative = CompilePrompt(negative),
                 Meta = new Meta()
                 {
-                    Width = meta.Width,
-                    Height = meta.Height,
-                    Sampling = meta.Sampling,
-                    Upscaler = meta.Upscaler,
-                    UpscaleBy = meta.UpscaleBy,
-                    HiresSteps = meta.HiresSteps,
+                    Width             = meta.Width,
+                    Height            = meta.Height,
+                    Sampling          = meta.Sampling,
+                    Upscaler          = meta.Upscaler,
+                    UpscaleBy         = meta.UpscaleBy,
+                    HiresSteps        = meta.HiresSteps,
                     DenoisingStrength = meta.DenoisingStrength,
-                    BatchCount = meta.BatchCount,
-                    CfgScale = meta.CfgScale,
-                    UseADetailer = meta.UseADetailer,
-                    CheckPoint = compiler.GetVariableValue(meta.CheckPoint),
+                    BatchCount        = meta.BatchCount,
+                    CfgScale          = meta.CfgScale,
+                    UseADetailer      = meta.UseADetailer,
+                    Name              = meta.Name,
+                    CheckPoint        = compiler.GetVariableValue(meta.CheckPoint),
                 },
             };
         }

@@ -11,10 +11,9 @@ namespace SourcesRuGenApp
         {
             while(!cancellationToken.IsCancellationRequested)
             {
-                await Task.Delay(period, cancellationToken);
-
                 if (!cancellationToken.IsCancellationRequested)
                     action();
+                await Task.Delay(period, cancellationToken);
             }
         }
 

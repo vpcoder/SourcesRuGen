@@ -5,11 +5,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{0BAEEF3D-729E-412C-AD2E-FDB6810A5113}</ProjectGuid>
+        <ProjectGuid>{B79B569D-161A-4B16-A6CA-B4F77EEFEC5A}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>SourcesRuGen.Prompts</RootNamespace>
-        <AssemblyName>SourcesRuGen.Prompts</AssemblyName>
+        <RootNamespace>SourcesRuGenConfig</RootNamespace>
+        <AssemblyName>SourcesRuGen.Config</AssemblyName>
         <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -33,56 +33,16 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-        <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-          <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-        </Reference>
         <Reference Include="System"/>
+        <Reference Include="System.Configuration" />
         <Reference Include="System.Core"/>
         <Reference Include="System.Data"/>
         <Reference Include="System.Xml"/>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Meta.cs" />
-        <Compile Include="PromptGenerator.cs" />
-        <Compile Include="TagChainGenerator.cs" />
-        <Compile Include="TagChunk.cs" />
-        <Compile Include="PromptModel.cs" />
+        <Compile Include="Configuration.cs" />
+        <Compile Include="IConfiguration.cs" />
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="TagCompiler.cs" />
-        <Compile Include="TagReader.cs" />
-        <Compile Include="TagTree.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <None Include="packages.config" />
-    </ItemGroup>
-    <ItemGroup>
-      <Content Include="Data\kyctuk.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\tr_laracroft.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\masseffect_miranda.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\masseffect_tali.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\re_adawong.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\witcher_ciri.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\witcher_shani.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\witcher_triss.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Include="Data\witcher_yennefer.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

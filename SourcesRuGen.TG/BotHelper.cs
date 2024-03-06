@@ -6,55 +6,53 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 using Telegram.Bot.Polling;
+using SourcesRuGen.Config;
+using Telegram.Bot.Types.Enums;
 
 namespace SourcesRuGen.TG
 {
 
     public class BotHelper
     {
+
+        private ITelegramBotClient lastBotLink;
         
-        private static ITelegramBotClient lastBotLink;
-        
-        public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
+        public async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
-            // Некоторые действия
-            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(update));
-            if(update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
+            if(update.Type == UpdateType.Message)
             {
                 var message = update.Message;
                 if (message.Text?.ToLower() == "/start_tits")
                 {
                     lastBotLink = botClient;
-                    //botClient.SendTextMessageAsync(chatId, "Я исправился, теперь прячу фотки под спойлеры...", tittheme);
+                    Console.WriteLine("client setup complete");
                 }
-                if (message.Text?.ToLower() == "/stop_tits")
+                if (message.Text?.ToLower() == "/exit")
                 {
-                    botClient.SendTextMessageAsync(_chatId, "Останавливаюсь...", _tittheme).Wait();
                     Environment.Exit(0);
                 }
             }
         }
 
-        public static async Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
+        public async Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
         {
             // Некоторые действия
             Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(exception));
         }
 
         
-        public void StartBot(string botId, long chatId, int threadId)
+        public void StartBot()
         {
-            _chatId   = chatId;
-            _tittheme = threadId;
-            
-            var bot = new TelegramBotClient(botId);
+            var config = Configuration.Instance;
+
+            var bot = new TelegramBotClient(config.BotID);
             Console.WriteLine("bot started " + bot.GetMeAsync().Result.FirstName);
 
             var cts               = new CancellationTokenSource();
             var cancellationToken = cts.Token;
             var receiverOptions = new ReceiverOptions
             {
-                AllowedUpdates = { },
+                AllowedUpdates = new[] { UpdateType.Message },
             };
             bot.StartReceiving(
                                HandleUpdateAsync,
@@ -63,9 +61,6 @@ namespace SourcesRuGen.TG
                                cancellationToken
                               );
         }
-        
-        private static long _chatId;
-        private static int _tittheme;
 
         public void Send(ICollection<string> files, string message)
         {
@@ -85,9 +80,11 @@ namespace SourcesRuGen.TG
                 album.Add(photoElement);
                 i++;
             }
-            lastBotLink.SendMediaGroupAsync(_chatId, album, _tittheme).Wait();
-            Thread.Sleep(1500);
-            lastBotLink.SendTextMessageAsync(_chatId, message, _tittheme).Wait();
+            
+            var config = Configuration.Instance;
+            lastBotLink.SendMediaGroupAsync(config.ChatID, album, config.ThreadID).Wait();
+            Thread.Sleep(500);
+            lastBotLink.SendTextMessageAsync(config.ChatID, message, config.ThreadID).Wait();
 
             foreach (var stream in streamData)
                 stream.Close();

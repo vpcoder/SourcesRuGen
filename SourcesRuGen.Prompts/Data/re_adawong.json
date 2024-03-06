@@ -3,7 +3,7 @@
     "author": "kyctuk",
     "version": "1.0.0",
     "date": "2024-03-05",
-    "Name": "masseffect-miranda",
+    "Name": "re-adawong",
     "Width":  768,
     "Height": 512,
     "Sampling":  70,
@@ -79,14 +79,14 @@
     
     {
       "Level": 4,
-      "Tag": "(cute, petite:1.2)|<lora:miranda_lawson:[0.7->1]>|<lora:MirandaME:[0.8->1]>|<lora:Miranda:[0.8->1]>",
+      "Tag": "<lora:AdaWong:[0.7->1]>|AdaWong, <lora:AdaWong:[0.7->1]>|<lora:adawong-re-richy-v1:[0.8->1]>",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 5,
-      "Tag": "Mass Effect, Miranda Lawson from Mass Effect, [young girl|woman|makeup|18yo girl]",
+      "Tag": "Ada Wong, [young girl|woman|makeup|18yo girl]",
       "Chance": 50,
       "Direction": "Positive"
     },

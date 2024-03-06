@@ -3,7 +3,7 @@
     "author": "kyctuk",
     "version": "1.0.0",
     "date": "2024-03-05",
-    "Name": "masseffect-miranda",
+    "Name": "tr-laracroft",
     "Width":  768,
     "Height": 512,
     "Sampling":  70,
@@ -79,14 +79,14 @@
     
     {
       "Level": 4,
-      "Tag": "(cute, petite:1.2)|<lora:miranda_lawson:[0.7->1]>|<lora:MirandaME:[0.8->1]>|<lora:Miranda:[0.8->1]>",
+      "Tag": "<lora:ROTTR_Lara Croft:[0.6->1]> lara croft|<lora:tombraider_classiclaracroft-11:[0.7->1]> lara croft",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 5,
-      "Tag": "Mass Effect, Miranda Lawson from Mass Effect, [young girl|woman|makeup|18yo girl]",
+      "Tag": "Lara Croft, [young girl|woman|makeup|18yo girl]",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -113,7 +113,14 @@
     
     {
       "Level": 8,
-      "Tag": "long hair, black hair",
+      "Tag": "[long|short|ponytail|ginger] hair",
+      "Chance": 50,
+      "Direction": "Positive"
+    },
+    
+    {
+      "Level": 9,
+      "Tag": "gray hair",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -150,6 +157,13 @@
       "Level": 15,
       "Tag": "null|stockings",
       "Chance": 50,
+      "Direction": "Positive"
+    },
+    
+    {
+      "Level": 16,
+      "Tag": "null|null|freckles|null",
+      "Chance": 10,
       "Direction": "Positive"
     },
     
