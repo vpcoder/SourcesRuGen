@@ -3,7 +3,7 @@
     "author": "kyctuk",
     "version": "1.0.0",
     "date": "2024-03-05",
-    "Name": "tr-laracroft",
+    "Name": "witcher-karlach",
     "Width":  768,
     "Height": 512,
     "Sampling":  70,
@@ -14,7 +14,7 @@
     "BatchCount": 10,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
+    "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
   },
   "Data": [
 
@@ -38,17 +38,17 @@
       "Chance": 50,
       "Direction": "Positive"
     },
-
+    
     {
       "Level": 4,
-      "Tag": "<lora:ROTTR_Lara Croft:[0.6->1]> lara croft|<lora:tombraider_classiclaracroft-11:[0.7->1]> lara croft",
+      "Tag": "BGKarlach <lora:Karlach_V2-Manityro-AdamW:[0.8->1]>, <lora:BGKarlachDreamshaper:[0.3->0.8]>",
       "Chance": 50,
       "Direction": "Positive"
     },
 
     {
       "Level": 5,
-      "Tag": "Lara Croft, {[young girl|woman|makeup|18yo girl]}?",
+      "Tag": "Karlach, demon {[young girl|woman|makeup|18yo girl]}?",
       "Chance": 50,
       "Direction": "Positive"
     },

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using SourcesRuGen.Config;
 using SourcesRuGen.Prompts;
 using SourcesRuGen.SD;
 using SourcesRuGen.TG;
@@ -11,17 +13,22 @@ namespace SourcesRuGenApp
         
         public static void Main(string[] args)
         {
-            var botHelper = new BotHelper(); 
-            botHelper.StartBot();
+            var config = Configuration.Instance;
+            var botHelper       = new BotHelper();
             var stableDiffusion = new StableDiffusion();
-            
-            Console.WriteLine("send /start_tits to me in telegram");
-            Console.ReadLine();
+            var data  = new TagReader().Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
+
+            if (config.SendToTG)
+            {
+                botHelper.StartBot();
+                Console.WriteLine("send /start_tits to me in telegram");
+                Console.ReadLine();
+            }
 
             PeriodicTask.Run(() =>
             {
-                DoGenIteration(stableDiffusion, botHelper);
-            }, TimeSpan.FromMinutes(SourcesRuGen.Config.Configuration.Instance.Interval));
+                DoGenIteration(stableDiffusion, botHelper, data, config);
+            }, TimeSpan.FromMinutes(config.Interval));
 
             for (;;)
             {
@@ -31,16 +38,13 @@ namespace SourcesRuGenApp
             }
         }
 
-        private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper)
+        private static void DoGenIteration(StableDiffusion sd, BotHelper botHelper, IDictionary<Meta, IDictionary<int, List<TagChunk>>> data, IConfiguration config)
         {
             try
             {
-                var reader = new TagReader();
-                var data   = reader.Read(AppDomain.CurrentDomain.BaseDirectory + "Data\\");
-                var model  = new PromptGenerator().Generate(data);
-
+                var model = new PromptGenerator().Generate(data);
                 var files = sd.GetFiles(model.Meta.BatchCount);
-                if (files.Count == 0)
+                if (files.Count == 0 || !config.SendToTG)
                 {
                     sd.Call(model);
                     files = sd.GetFiles(model.Meta.BatchCount);
@@ -49,8 +53,11 @@ namespace SourcesRuGenApp
                         return;
                 }
 
-                botHelper.Send(files, "Смотри, это я нарисовал!\r\n" + sd.GetMetaMessage());
-                sd.MoveToTmp(files);
+                if (config.SendToTG)
+                {
+                    botHelper.Send(files, "Смотри, это я нарисовал!\r\n" + sd.GetMetaMessage());
+                    sd.MoveToTmp(files);
+                }
             }
             catch (Exception ex)
             {

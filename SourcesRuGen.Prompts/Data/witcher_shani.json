@@ -17,199 +17,107 @@
     "CheckPoint": "Real\\\\leosamsHelloworldXL_helloworldXL50GPT4V.safetensors [d8fd60692a]|Real\\\\wildcardxXLLIGHTNING_wildcardxXL.safetensors [f53945ec37]|Real\\\\zavychromaxl_v50.safetensors [7f63ddc0d8]"
   },
   "Data": [
+    
     {
       "Level": -100,
-      "Tag": "child, boy",
+      "Tag": "child, boy, {(low quality, worst quality:1.4)}?, monochrome, censored, {(lowres:1.2), EasyNegative}?, deformed, ugly, bad anatomy, bad proportions, deformed fingers, bad, distracted, ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))) , ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), {flat, low contrast}?, {oversaturated, underexposed}?, {overexposed, blurred, noisy}?",
       "Chance": 50,
       "Direction": "Negative"
     },
+
     {
       "Level": -10,
-      "Tag": "(detailed realistic background:1)|simple background",
+      "Tag": "[(detailed realistic background:1)|simple background], {[public bathroom|town|forest|flower field|null]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": -1,
-      "Tag": "cinematic photo|null|(official art, beautiful and aesthetic:1)|null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 0,
-      "Tag": "(masterpiece, best quality), realistic face|perfect face|(masterpiece, best quality), realistic lighting, cinematic lighting, hyperrealism|HDR photo of perfect face, perfectly detailed erotic body",
+      "Tag": "{cinematic photo}?, {official art}?, {(beautiful and aesthetic:1)}?, {(masterpiece, best quality)}?, {perfect face}?, {realistic lighting}?, {cinematic lighting}?, {hyperrealism}?, {HDR photo of perfect face}?, {perfectly detailed erotic body}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": 1,
-      "Tag": "(low quality, worst quality:1.4), monochrome, censored",
-      "Chance": 50,
-      "Direction": "Negative"
-    },
-    {
-      "Level": 1,
-      "Tag": "(worst quality:2), (low quality:2), (lowres:1.2), censored",
-      "Chance": 50,
-      "Direction": "Negative"
-    },
-    {
-      "Level": 1,
-      "Tag": "(worst quality:1.4), (low quality:1.4), (monochrome:1.1), EasyNegative, censored",
-      "Chance": 50,
-      "Direction": "Negative"
-    },
-    
-    {
-      "Level": 2,
-      "Tag": "deformed, ugly, bad anatomy, bad proportions, deformed fingers, bad, distracted",
-      "Chance": 70,
-      "Direction": "Negative"
-    },
-    
-    {
-      "Level": 3,
-      "Tag": "((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))) , ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck)))",
-      "Chance": 100,
-      "Direction": "Negative"
-    },
-    
+
     {
       "Level": 4,
       "Tag": "<lora:Witcher3Shani:[0.7->1]>, Witcher3Shani",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
+
     {
       "Level": 5,
-      "Tag": "Shani, [young girl|woman|makeup|18yo girl]",
+      "Tag": "Shani, makeup, {[young girl|18yo girl]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": 6,
-      "Tag": "pale skin|very beautiful|beautiful|slim body|oiled skin|tan skin|big hips|small body",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 7,
-      "Tag": "full nude|skirt|panties|pantyhose|high briefs|bikinis",
+      "Tag": "full nude, naked body|null",
       "Chance": 50,
       "Direction": "Positive"
     },
-    {
-      "Level": 7,
-      "Tag": "null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 8,
-      "Tag": "[long|short|ponytail|ginger] hair",
+      "Tag": "[long|short|ponytail|ginger] hair, [red|blond|brunette|green|gray|white|blue] hair",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": 9,
-      "Tag": "gray hair",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 10,
-      "Tag": "small tits,small breasts|flat chest|big tits|(gigantic puffy breasts)",
+      "Tag": "{[small tits,small breasts|flat chest|big tits|(gigantic puffy breasts)]}?, {[wearing tits|nude tits]}?, {[small|large] nipples}?, {[large_areolae, <lora:BigBeautifulNipples_v1:[0.5->1]>|nipples|puffy nipples]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": 11,
-      "Tag": "nude tits|naked|full-body",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
-    {
-      "Level": 12,
-      "Tag": "[small|large] nipples|large_areolae, <lora:BigBeautifulNipples_v1:[0.5->1]>|nipples|puffy nipples",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 13,
-      "Tag": "naked [pussy|ass|anus|hips],[smooth|plump|steaming] pussy,[pussy juice|creampie|wet dripping pussy|null],perfect pussy",
+      "Tag": "{naked [pussy|ass|anus|hips]}?, {[smooth|plump|steaming] pussy}?, {[pussy juice|creampie|wet dripping pussy]}?, {perfect pussy}?, {[(female pubic hair)|shaved pussy]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
     {
-      "Level": 15,
-      "Tag": "null|stockings",
+      "Level": 13,
+      "Tag": "panties, wearing pussy, see-through panties",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
+
     {
       "Level": 16,
       "Tag": "null|null|freckles|null",
       "Chance": 10,
       "Direction": "Positive"
     },
-    
+
     {
       "Level": 17,
-      "Tag": "sexy pose|(dynamic poses)|solo pose|suggestive poses|Lying on her stomach|standing",
+      "Tag": "{sexy pose}?, {(dynamic poses)}?, {solo pose}?, {suggestive poses}?|Lying on her stomach|back view|standing",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
+
     {
       "Level": 18,
-      "Tag": "close-up|(dynamic perspective angle)|full body close-up|ass focus",
+      "Tag": "{full body view}?, {close-up}?, {(dynamic perspective angle)}?, {[ass|pussy|breast] focus}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    
-    {
-      "Level": 19,
-      "Tag": "legs together|legs crossed|legs spread|posing, dynamic pose|null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    {
-      "Level": 19,
-      "Tag": "null",
-      "Chance": 50,
-      "Direction": "Positive"
-    },
-    
+
     {
       "Level": 100,
-      "Tag": "High dynamic range, vivid, rich details, clear shadows and highlights, realistic, intense, enhanced contrast, highly detailed|35mm photograph, film, bokeh, professional, 4k, highly detailed",
+      "Tag": "{High dynamic range}?, {vivid}?, {rich details}?, {clear shadows and highlights}?, {realistic}?, {intense}?, {enhanced contrast}?, {highly detailed}?, {35mm photograph}?, {film}?, {bokeh}?, {professional}?, {4k}?, {highly detailed}?",
       "Chance": 50,
       "Direction": "Positive"
     },
-    {
-      "Level": 100,
-      "Tag": "flat, low contrast, oversaturated, underexposed, overexposed, blurred, noisy",
-      "Chance": 50,
-      "Direction": "Negative"
-    },
-    
+
     {
       "Level": 101,
-      "Tag": "<lora:add_detail:[0.8->1.5]>|null",
+      "Tag": "<lora:add_detail:[0.5->1.5]>|null",
       "Chance": 50,
       "Direction": "Positive"
     }

@@ -11,6 +11,9 @@ namespace SourcesRuGen.Prompts
     {
         private readonly string START_QUOTE = "[";
         private readonly string END_QUOTE   = "]";
+        
+        private readonly string START_QQUOTE = "{";
+        private readonly string END_QQUOTE   = "}?";
 
         private Random rnd = new Random();
         
@@ -21,10 +24,14 @@ namespace SourcesRuGen.Prompts
                 return null;
 
             var text = tag.Tag;
-            var vars = GetIncludesInQuotes(text, START_QUOTE, END_QUOTE);
+            var variations = GetIncludesInQuotes(text, START_QQUOTE, END_QQUOTE);
+            if (variations != null && variations.Count > 0)
+                foreach (var variation in variations)
+                    text = text.Replace(START_QQUOTE + variation + END_QQUOTE, GetVariation(variation));
             
-            if (vars != null && vars.Count > 0)
-                foreach (var variable in vars)
+            var variables = GetIncludesInQuotes(text, START_QUOTE, END_QUOTE);
+            if (variables != null && variables.Count > 0)
+                foreach (var variable in variables)
                     text = text.Replace(START_QUOTE + variable + END_QUOTE, GetVariableValue(variable));
             
             var items = text.Split('|');
@@ -32,6 +39,11 @@ namespace SourcesRuGen.Prompts
                 text = items[rnd.Next(0, items.Length)];
 
             return text == "null" ? "" : Format(text);
+        }
+
+        private string GetVariation(string variation)
+        {
+            return rnd.NextDouble() >= 0.5d ? "" : variation;
         }
 
         private string Format(string value)

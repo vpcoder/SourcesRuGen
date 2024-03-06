@@ -17,14 +17,16 @@ namespace SourcesRuGen.SD
         private string path;
         private string pathTmp;
         private long   maxWait;
+        private bool   randomModel;
 
         public StableDiffusion()
         {
             var config = Configuration.Instance;
-            this.url     = config.SDHost;
-            this.path    = config.SHOutput;
-            this.pathTmp = config.TmpPath;
-            this.maxWait = config.MaxWait;
+            this.url         = config.SDHost;
+            this.path        = config.SHOutput;
+            this.pathTmp     = config.TmpPath;
+            this.maxWait     = config.MaxWait;
+            this.randomModel = config.SDRandomModel;
         }
         
         public string GetMetaMessage()
@@ -75,7 +77,8 @@ namespace SourcesRuGen.SD
         
         public void Call(PromptModel promptModel)
         {
-            ChangeCheckPoint(promptModel);
+            if(randomModel)
+                ChangeCheckPoint(promptModel);
 
             var json = @"{
   ""prompt"": """ + promptModel.Positive + @""",

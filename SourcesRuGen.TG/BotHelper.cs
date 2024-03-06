@@ -69,20 +69,21 @@ namespace SourcesRuGen.TG
             
             List<FileStream>       streamData = new List<FileStream>();
             List<IAlbumInputMedia> album      = new List<IAlbumInputMedia>(files.Count);
-            int                    i          = 0;
+
             foreach (var file in files)
             {
                 var stream = new FileStream(file, FileMode.Open);
                 streamData.Add(stream);
-                InputMediaPhoto photoElement = new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file)));
-                photoElement.HasSpoiler = true;
-                photoElement.Caption    = Path.GetFileName(file);
-                album.Add(photoElement);
-                i++;
+                album.Add(new InputMediaPhoto(InputFile.FromStream(stream, Path.GetFileName(file)))
+                {
+                    HasSpoiler = true,
+                    Caption    = Path.GetFileName(file)
+                });
             }
             
             var config = Configuration.Instance;
             lastBotLink.SendMediaGroupAsync(config.ChatID, album, config.ThreadID).Wait();
+            
             Thread.Sleep(500);
             lastBotLink.SendTextMessageAsync(config.ChatID, message, config.ThreadID).Wait();
 
