@@ -97,6 +97,9 @@ namespace SourcesRuGen.SD
             
             File.WriteAllText(GetMetaPath(), "json: " + promptModel.Meta.Name + "\r\nsd model: " + promptModel.Meta.CheckPoint + "\r\nprompt: " + promptModel.Positive);
             Post("txt2img", json);
+
+            Console.WriteLine("\r\n\r\ncomplete gen, waiting write to disk...");
+            Thread.Sleep(20000);
         }
         
         private string GetMetaPath()
@@ -114,6 +117,9 @@ namespace SourcesRuGen.SD
         {
             var json = "{\"sd_model_checkpoint\": \"" + promptModel.Meta.CheckPoint + "\", \"CLIP_stop_at_last_layers\": 2 }";
             Post("options", json);
+            
+            Console.WriteLine("\r\n\r\nswitch sd checkpoint delay...");
+            Thread.Sleep(20000);
         }
 
         private void Post(string command, string json)
@@ -148,9 +154,6 @@ namespace SourcesRuGen.SD
             }
             catch (Exception ex)
             { }
-
-            Console.WriteLine("\r\n\r\ncomplete gen, waiting write to disk...");
-            Thread.Sleep(20000);
         }
         
     }

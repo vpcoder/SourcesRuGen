@@ -3,7 +3,7 @@
     "author": "kyctuk",
     "version": "1.0.0",
     "date": "2024-03-05",
-    "Name": "masseffect-tali'zorah",
+    "Name": "witcher-triss",
     "Width":  768,
     "Height": 512,
     "Sampling":  70,
@@ -79,14 +79,14 @@
     
     {
       "Level": 4,
-      "Tag": "<lora:quarian:[0.8->1]> face covered, quarian",
+      "Tag": "BGKarlach <lora:Karlach_V2-Manityro-AdamW:[0.8->1]>, <lora:BGKarlachDreamshaper:[0.3->0.8]>",
       "Chance": 50,
       "Direction": "Positive"
     },
     
     {
       "Level": 5,
-      "Tag": "masseffectembed, quarian, tali'zorah, [young girl|woman|makeup|18yo girl]",
+      "Tag": "Karlach, demon [young girl|woman|makeup|18yo girl]",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -113,7 +113,7 @@
     
     {
       "Level": 8,
-      "Tag": "long hair, black hair",
+      "Tag": "[long|short] hair, red hair, green eyes",
       "Chance": 50,
       "Direction": "Positive"
     },
