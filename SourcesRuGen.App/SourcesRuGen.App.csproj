@@ -46,6 +46,10 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\SourcesRuGen.Config\SourcesRuGen.Config.csproj">
+        <Project>{b79b569d-161a-4b16-a6ca-b4f77eefec5a}</Project>
+        <Name>SourcesRuGen.Config</Name>
+      </ProjectReference>
       <ProjectReference Include="..\SourcesRuGen.Prompts\SourcesRuGen.Prompts.csproj">
         <Project>{0baeef3d-729e-412c-ad2e-fdb6810a5113}</Project>
         <Name>SourcesRuGen.Prompts</Name>

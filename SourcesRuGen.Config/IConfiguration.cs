@@ -10,6 +10,7 @@
         string SHOutput { get; }
         string TmpPath  { get; }
         long   MaxWait  { get; }
+        long   Interval { get; }
     }
 
 }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using SourcesRuGen.Prompts;
 using SourcesRuGen.SD;
 using SourcesRuGen.TG;
@@ -23,7 +21,7 @@ namespace SourcesRuGenApp
             PeriodicTask.Run(() =>
             {
                 DoGenIteration(stableDiffusion, botHelper);
-            }, TimeSpan.FromMinutes(40));
+            }, TimeSpan.FromMinutes(SourcesRuGen.Config.Configuration.Instance.Interval));
 
             for (;;)
             {
