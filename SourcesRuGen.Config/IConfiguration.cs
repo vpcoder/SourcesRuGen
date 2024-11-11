@@ -14,6 +14,10 @@
         long   Interval      { get; }
         bool   SendToTG      { get; }
         bool   Generation    { get; }
+        bool   TaskRunFirst  { get; }
+
+        void Reload();
+
     }
 
 }

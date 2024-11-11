@@ -11,10 +11,10 @@
     "UpscaleBy":  1.667,
     "HiresSteps": 30,
     "DenoisingStrength":  0.56,
-    "BatchCount": 5,
+    "BatchCount": 3,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "DigitalArt\\revAnimated_v122EOL.safetensors [4199bcdd14]"
+    "CheckPoint": "DigitalArt_revAnimated_v122EOL|Hentai_pornzillaAnime_v17|Hentai_butamanmix_70NSFW"
   },
   "Data": [
     

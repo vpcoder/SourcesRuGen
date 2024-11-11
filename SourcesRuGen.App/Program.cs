@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using SourcesRuGen.Config;
 using SourcesRuGen.Prompts;
 using SourcesRuGen.SD;
@@ -25,16 +26,25 @@ namespace SourcesRuGenApp
                 Console.ReadLine();
             }
 
-            PeriodicTask.Run(() =>
+            var token = new CancellationTokenSource();
+            var task = PeriodicTask.Run(() =>
             {
                 DoGenIteration(stableDiffusion, botHelper, data, config);
-            }, TimeSpan.FromMinutes(config.Interval));
+            }, TimeSpan.FromMinutes(config.Interval), token, config);
 
             for (;;)
             {
                 var cmd = Console.ReadLine();
                 if (cmd == "exit")
                     break;
+                
+                config.Reload();
+                token.Cancel();
+                token = new CancellationTokenSource();
+                task = PeriodicTask.Run(() =>
+                {
+                    DoGenIteration(stableDiffusion, botHelper, data, config);
+                }, TimeSpan.FromMinutes(config.Interval), token, config);
             }
         }
 
@@ -47,7 +57,7 @@ namespace SourcesRuGenApp
                 var model = generator.Generate(tree);
                 
                 var files = sd.GetFiles(model.Meta.BatchCount);
-                if (files.Count == 0 || !config.SendToTG)
+                if ((files.Count == 0 || !config.SendToTG) && config.Generation)
                 {
 
                     if (config.SDRandomModel)
