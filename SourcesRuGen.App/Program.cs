@@ -42,15 +42,35 @@ namespace SourcesRuGenApp
         {
             try
             {
-                var model = new PromptGenerator().Generate(data);
+                var generator = new PromptGenerator();
+                var tree  = generator.GenetareChain(data);
+                var model = generator.Generate(tree);
+                
                 var files = sd.GetFiles(model.Meta.BatchCount);
                 if (files.Count == 0 || !config.SendToTG)
                 {
-                    sd.Call(model);
-                    files = sd.GetFiles(model.Meta.BatchCount);
 
-                    if (files.Count == 0)
-                        return;
+                    if (config.SDRandomModel)
+                    {
+                        sd.ChangeCheckPoint(model);
+                    }
+
+                    for (;;)
+                    {
+                        Console.WriteLine($"json: {model.Meta.Name}\r\nmodel: {model.Meta.CheckPoint}\r\npositive:\r\n{model.Positive}\r\n\r\nnegative:\r\n{model.Negative}");
+                        if (config.Generation)
+                        {
+                            sd.Call(model);
+                        }
+
+                        model = generator.Generate(tree);
+                        
+                        files = sd.GetFiles(model.Meta.BatchCount);
+                        if (files.Count >= model.Meta.BatchCount)
+                        {
+                            break;
+                        }
+                    }
                 }
 
                 if (config.SendToTG)

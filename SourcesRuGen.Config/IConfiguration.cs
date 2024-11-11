@@ -13,6 +13,7 @@
         long   MaxWait       { get; }
         long   Interval      { get; }
         bool   SendToTG      { get; }
+        bool   Generation    { get; }
     }
 
 }

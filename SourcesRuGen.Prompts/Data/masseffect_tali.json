@@ -9,32 +9,32 @@
     "Sampling":  70,
     "Upscaler": "R-ESRGAN 4x+ Anime6B",
     "UpscaleBy":  1.667,
-    "HiresSteps": 120,
+    "HiresSteps": 30,
     "DenoisingStrength":  0.56,
-    "BatchCount": 10,
+    "BatchCount": 5,
     "CfgScale":  7,
     "UseADetailer": true,
-    "CheckPoint": "Real\\vixonsFantasyMix_prunedV2.safetensors [d1c87ca221]|Real\\urpmOrangehard_v20.safetensors [5363c6dd80]|Real\\RedBlueFantasy_v20.safetensors [7f4e68104a]|Real\\picxReal_10.safetensors [07919b495d]"
+    "CheckPoint": "DigitalArt\\revAnimated_v122EOL.safetensors [4199bcdd14]"
   },
   "Data": [
 
     {
       "Level": -100,
-      "Tag": "child, boy, {(low quality, worst quality:1.4)}?, monochrome, censored, {(lowres:1.2), EasyNegative}?, deformed, ugly, bad anatomy, bad proportions, deformed fingers, bad, distracted, ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))) , ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), {flat, low contrast}?, {oversaturated, underexposed}?, {overexposed, blurred, noisy}?",
+      "Tag": "boy, source_furry, source_pony, {(low quality, worst quality:1.4)}?, monochrome, censored, {(lowres:1.2), EasyNegative}?, deformed, ugly, bad anatomy, bad proportions, deformed fingers, bad, distracted, ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))) , ((((ugly)))), (((duplicate))), ((morbid)), ((mutilated)), out of frame, extra fingers, mutated hands, ((poorly drawn hands)), ((poorly drawn face)), (((mutation))), (((deformed))), ((ugly)), blurry, ((bad anatomy)), (((bad proportions))), ((extra limbs)), cloned face, (((disfigured))), out of frame, ugly, extra limbs, (bad anatomy), gross proportions, (malformed limbs), ((missing arms)), ((missing legs)), (((extra arms))), (((extra legs))), mutated hands, (fused fingers), (too many fingers), (((long neck))), {flat, low contrast}?, {oversaturated, underexposed}?, {overexposed, blurred, noisy}?",
       "Chance": 50,
       "Direction": "Negative"
     },
 
     {
       "Level": -10,
-      "Tag": "[(detailed realistic background:1)|simple background], {[public bathroom|town|forest|flower field|null]}?",
+      "Tag": "[(detailed anime background:1)|simple background], {[public bathroom|town|in the room|outer space|fantasy|castle|forest|flower field|null]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
 
     {
       "Level": 0,
-      "Tag": "{cinematic photo}?, {official art}?, {(beautiful and aesthetic:1)}?, {(masterpiece, best quality)}?, {perfect face}?, {realistic lighting}?, {cinematic lighting}?, {hyperrealism}?, {HDR photo of perfect face}?, {perfectly detailed erotic body}?",
+      "Tag": "{concept art, digital artwork|anime}?, {(beautiful and aesthetic:1)}?, {(masterpiece, best quality)}?, {perfect face}?, {illustrative, painterly, matte painting}?, {perfectly detailed erotic body}?",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -69,7 +69,7 @@
 
     {
       "Level": 10,
-      "Tag": "{[small tits,small breasts|flat chest|big tits|(gigantic puffy breasts)]}?, {[wearing tits|nude tits]}?, {[small|large] nipples}?, {[large_areolae, <lora:BigBeautifulNipples_v1:[0.5->1]>|nipples|puffy nipples]}?",
+      "Tag": "{[small tits,small breasts|flat chest|big tits|(gigantic puffy breasts)]}?, {[wearing tits|nude tits]}?, {[small|large] nipples}?, {[large_areolae, <lora:BigBeautifulNipples_v1:0.8>|nipples|puffy nipples]}?",
       "Chance": 50,
       "Direction": "Positive"
     },
@@ -96,7 +96,7 @@
 
     {
       "Level": 17,
-      "Tag": "{sexy pose}?, {(dynamic poses)}?, {solo pose}?, {suggestive poses}?|Lying on her stomach|back view|standing",
+      "Tag": "{sexy pose}?, {(dynamic poses)}?, {solo pose}?, {suggestive poses}?",
       "Chance": 50,
       "Direction": "Positive"
     },

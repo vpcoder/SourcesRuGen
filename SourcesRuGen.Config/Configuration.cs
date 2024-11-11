@@ -20,6 +20,7 @@ namespace SourcesRuGen.Config
         public long   MaxWait       { get; }
         public long   Interval      { get; }
         public bool   SendToTG      { get; }
+        public bool   Generation    { get; }
 
         private Configuration()
         {
@@ -33,6 +34,7 @@ namespace SourcesRuGen.Config
             MaxWait       = long.Parse(ConfigurationManager.AppSettings["MaxWait"]);
             Interval      = long.Parse(ConfigurationManager.AppSettings["Interval"]);
             SendToTG      = bool.Parse(ConfigurationManager.AppSettings["SendToTG"]);
+            Generation    = bool.Parse(ConfigurationManager.AppSettings["Generation"]);
         }
         
     }

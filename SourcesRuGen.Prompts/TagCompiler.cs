@@ -43,7 +43,8 @@ namespace SourcesRuGen.Prompts
 
         private string GetVariation(string variation)
         {
-            return rnd.NextDouble() >= 0.5d ? "" : variation;
+            var isDisabled = rnd.NextDouble() >= 0.5d;
+            return isDisabled ? "" : variation;
         }
 
         private string Format(string value)

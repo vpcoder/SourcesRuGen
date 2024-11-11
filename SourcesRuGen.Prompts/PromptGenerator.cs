@@ -12,26 +12,32 @@ namespace SourcesRuGen.Prompts
         private readonly TagChainGenerator tagChainGenerator = new TagChainGenerator();
 
         private readonly Random rnd = new Random();
-        
-        public PromptModel Generate(IDictionary<Meta, IDictionary<int, List<TagChunk>>> data)
+
+        public TagTree GenetareChain(IDictionary<Meta, IDictionary<int, List<TagChunk>>> data)
         {
             var first = data.Keys.ToList()[rnd.Next(0, data.Keys.Count)];
-            var chain  = tagChainGenerator.Generate(data[first]);
-            return Generate(chain, first);
+            var chain = tagChainGenerator.Generate(data[first]);
+
+            return new TagTree()
+            {
+                Data = chain,
+                Meta = first,
+            };
         }
 
-        public PromptModel Generate(IList<TagChunk> chain, Meta meta)
+        public PromptModel Generate(TagTree tree)
         {
             var positive = new List<TagChunk>();
             var negative = new List<TagChunk>();
-            foreach (var chunk in chain)
+            foreach (var chunk in tree.Data)
             {
                 if(chunk.Direction == DirectionType.Positive)
                     positive.Add(chunk);
                 else
                     negative.Add(chunk);
             }
-            
+
+            var meta = tree.Meta;
             return new PromptModel
             {
                 Positive = CompilePrompt(positive),

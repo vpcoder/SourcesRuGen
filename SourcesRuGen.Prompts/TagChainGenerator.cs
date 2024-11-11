@@ -12,7 +12,7 @@ namespace SourcesRuGen.Prompts
 
         private Random rnd = new Random();
 
-        public IList<TagChunk> Generate(IDictionary<int, List<TagChunk>> dictionary)
+        public List<TagChunk> Generate(IDictionary<int, List<TagChunk>> dictionary)
         {
             var list = new List<TagChunk>();
             foreach (var variants in dictionary.Values)

@@ -77,13 +77,10 @@ namespace SourcesRuGen.SD
         
         public void Call(PromptModel promptModel)
         {
-            if(randomModel)
-                ChangeCheckPoint(promptModel);
-
-            var json = @"{
+                var json = @"{
   ""prompt"": """ + promptModel.Positive + @""",
   ""negative_prompt"": """ + promptModel.Negative + @""",
-  ""batch_size"": " + promptModel.Meta.BatchCount + @",
+  ""batch_size"": " + 1 + @",
   ""steps"": " + promptModel.Meta.Sampling + @",
   ""cfg_scale"": " + GetStr(promptModel.Meta.CfgScale) + @",
   ""width"": " + promptModel.Meta.Width + @",
@@ -97,9 +94,9 @@ namespace SourcesRuGen.SD
   ""send_images"": false,
   ""save_images"": true
 }";
+            Post("txt2img", json);
             
             File.WriteAllText(GetMetaPath(), "json: " + promptModel.Meta.Name + "\r\nsd model: " + promptModel.Meta.CheckPoint + "\r\nprompt: " + promptModel.Positive);
-            Post("txt2img", json);
 
             Console.WriteLine("\r\n\r\ncomplete gen, waiting write to disk...");
             Thread.Sleep(20000);
@@ -116,7 +113,7 @@ namespace SourcesRuGen.SD
             return value.ToString("0.000").Replace(",", ".");
         }
 
-        private void ChangeCheckPoint(PromptModel promptModel)
+        public void ChangeCheckPoint(PromptModel promptModel)
         {
             var json = "{\"sd_model_checkpoint\": \"" + promptModel.Meta.CheckPoint + "\", \"CLIP_stop_at_last_layers\": 2 }";
             Post("options", json);
@@ -127,7 +124,7 @@ namespace SourcesRuGen.SD
 
         private void Post(string command, string json)
         {
-            Console.WriteLine("post: " + url+command + "\r\nbody: \r\n" + json);
+            Console.WriteLine("post: " + url + command);
             var client        = new HttpClient();
             var stringContent = new StringContent(json, Encoding.UTF8, "application/json");
             var response      = client.PostAsync(url + command, stringContent);
